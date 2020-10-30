@@ -6,7 +6,20 @@ import { useDispatch } from 'react-redux'
 
 const List = (props) => {
 
-    const dispatch = useDispatch()
+    const [newTodo, setNewTodo] = useState ({
+        id: "",
+        message: "",
+        isDone: ""
+    })
+    const [isEdit, setIsEdit] = useState (false)
+    const getData = (obj) => {
+        setNewTodo({
+            id: obj.id,
+            message: obj.message,
+            isDone: obj.isDone
+        })
+        setIsEdit(true)
+    }
 
 
     return (
@@ -18,7 +31,9 @@ const List = (props) => {
                     <span className='trash'><i className="fas fa-trash" 
                     onClick={() => props.dispatch(deleteTodo(todo.id))}>
                     </i></span>
-                    <span className='pen'><i class="fas fa-pen"></i></span>
+                    <span className='pen'><i class="fas fa-pen"
+                    onClick={()=>getData(todo)}
+                    ></i></span>
                 </li>
             ))}
         </ul>

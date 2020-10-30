@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = (props) => {
     return (
         <div className="footer">
-            <a href='#'>view all</a>
-            <a href='#'>view complete</a>
+            <a href='#'>All</a>
+
+            <a href='#'>Complete</a>
         </div>
     )
 }

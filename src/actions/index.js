@@ -14,5 +14,5 @@ export const deleteTodo = (id) => ({
 const EDIT_TODO = "EDIT_TODO" ;
 export const editTodo = (todo) => ({
     type: EDIT_TODO ,
-    payload: {todo} ,
+    todo ,
 });
