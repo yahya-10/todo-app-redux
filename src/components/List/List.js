@@ -1,42 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { deleteTodo } from '../../actions';
-import todos from '../../reducers/todos';
-import { useDispatch } from 'react-redux'
+import Edit from '../../components/Edit';
+import { deleteTodo,changeStatus } from '../../actions';
 
 const List = (props) => {
 
-    const [newTodo, setNewTodo] = useState ({
-        id: "",
-        message: "",
-        isDone: ""
-    })
-    const [isEdit, setIsEdit] = useState (false)
-    const getData = (obj) => {
-        setNewTodo({
-            id: obj.id,
-            message: obj.message,
-            isDone: obj.isDone
-        })
-        setIsEdit(true)
-    }
+    const styles = {
+        textDecoration: "line-through",
+        textDecorationColor: "red"
+    }    
 
 
     return (
-        <ul>
-            {props.todos.map((todo, i) =>(
-                <li key={i} 
-                className='todos'
-                >{todo.message} 
-                    <span className='trash'><i className="fas fa-trash" 
-                    onClick={() => props.dispatch(deleteTodo(todo.id))}>
-                    </i></span>
-                    <span className='pen'><i class="fas fa-pen"
-                    onClick={()=>getData(todo)}
-                    ></i></span>
-                </li>
-            ))}
-        </ul>
+        <div>
+            <ul>
+                {props.todos.map((todo, i) =>(
+                    <li key={i} 
+                    className='todos'
+                    onClick={()=>props.dispatch(changeStatus(todo.id))}
+                    style={todo.isDone ? styles : null}
+                    >{todo.message} 
+                        <span className='trash'><i className="fas fa-trash" 
+                        onClick={() => props.dispatch(deleteTodo(todo.id))}>
+                        </i></span> 
+                        <span><Edit todo={todo} /></span>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }
 

@@ -19,7 +19,7 @@ html,body{
 
 input{
   width: 30%;
-  height: 40px;
+  height: 47px;
 }
 button{
   padding: 10px;
@@ -34,10 +34,12 @@ button:hover {
   font-size: 26px;
   text-align: center;
 }
+
 span{
   margin-left: 10px;
   cursor: pointer;
   font-size: 22px;
+  
 }
 .trash{
   color: red;
@@ -45,17 +47,18 @@ span{
 .pen{
   color: cyan;
 }
+
 .footer{
   text-align: center;
   margin-top: 50px;
 }
-.footer a {
+.footer button {
   text-decoration: none;
-  color: beige;
+  color:black;
 }
-a{
+button{
   margin-right: 10px;
 }
-a:hover{
+button:hover{
   color: yellow;
 }

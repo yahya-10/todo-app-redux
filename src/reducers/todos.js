@@ -26,20 +26,30 @@ const todos = (state = initialState, action) => {
         case "EDIT_TODO" :
             return {
                 ...state,
-                data: state.data.map(todo => {
-                    if (todo.id === action.payload.todo.id){
-                        return {
-                            ...todo,
-                            ...action.payload.todo
-                        }
+                data: 
+                state.data.map((el) =>
+                    el.id === action.id ? { ...el, message: action.message } : el
+                    )
+                };
+        case "CHANGE_STATUS" :
+            return {
+                ...state, 
+                data: 
+                    state.data.map((el)=>
+                        el.id === action.id ? {...el, isDone: !el.isDone} : el)
                     }
-                    return todo;
-                })
+        case "FILTER_TODO" :
+            return {
+                ...state,
+                data: 
+                state.data.filter((el) =>
+                    el.isDone === true ? el : null)
             }
-        
         default:
             return state;
     }
 };
 
 export default todos;
+
+

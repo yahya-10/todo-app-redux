@@ -12,7 +12,20 @@ export const deleteTodo = (id) => ({
 });
 
 const EDIT_TODO = "EDIT_TODO" ;
-export const editTodo = (todo) => ({
+export const editTodo = (payload) => ({
     type: EDIT_TODO ,
-    todo ,
+    payload ,
 });
+
+const CHANGE_STATUS = "CHANGE_STATUS" ;
+export const changeStatus = (id) => ({
+    type: CHANGE_STATUS ,
+    id ,
+})
+
+const FILTER_TODO = "FILTER_TODO" ;
+export const filterTodo = (payload) => ({
+    type: FILTER_TODO ,
+    payload ,
+});
+
