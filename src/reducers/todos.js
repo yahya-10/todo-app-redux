@@ -28,7 +28,7 @@ const todos = (state = initialState, action) => {
                 ...state,
                 data: 
                 state.data.map((el) =>
-                    el.id === action.id ? { ...el, message: action.message } : el
+                    el.id === action.payload.id ? { ...el, message: action.payload.message } : el
                     )
                 };
         case "CHANGE_STATUS" :
